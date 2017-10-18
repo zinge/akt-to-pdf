@@ -49,7 +49,7 @@ export default {
         return this.$store.state.transferUser
       },
       set () {
-        return this.$store.state.transferUser
+        this.$store.commit('addTransferUser', this.transfer)
       }
     },
     accept: {
@@ -57,7 +57,7 @@ export default {
         return this.$store.state.acceptUser
       },
       set () {
-        return this.$store.state.acceptUser
+        this.$store.commit('addAcceptUser', this.accept)
       }
     }
   }

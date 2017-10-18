@@ -12,12 +12,40 @@
         </tbody>
       </table>
 
-      <div class="modal">
+      <a class="button" @click="isActive = true">Button</a>
+      <div class="modal" :class="{'is-active': isActive}">
         <div class="modal-background"></div>
         <div class="modal-content">
-          Any other Bulma elements you want
+          <div class="box">
+            <strong>Парметры нового элемента</strong>
+            <div class="field">
+              <div class="control">
+                <input v-model="item.name" class="input is-small" type="text" placeholder="наименование оборудования">
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input v-model="item.sap" class="input is-small" type="text" placeholder="инвентарный номер в SAP">
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input v-model="item.vendorSerial" class="input is-small" type="text" placeholder="инвентарный номер производителя">
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input v-model="item.count" class="input is-small" type="text" placeholder="количество">
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <button class="is-small" @click="addItem">добавить</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <button class="modal-close is-large" aria-label="close"></button>
+        <button class="modal-close is-large" aria-label="close" @click="isActive = false"></button>
       </div>
     </div>
   </div>
@@ -33,7 +61,9 @@ export default {
         sap: 'инв. SAP',
         vendorSerial: 'инв. заводской',
         count: 'количество'
-      }
+      },
+      isActive: false,
+      item: {}
     }
   },
 
@@ -42,6 +72,13 @@ export default {
       get () {
         return this.$store.state.items
       }
+    }
+  },
+
+  methods: {
+    addItem () {
+      // this.$store.commit('addItem', this.item)
+      this.isActive = false
     }
   }
 }
