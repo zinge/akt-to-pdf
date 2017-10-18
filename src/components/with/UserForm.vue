@@ -1,21 +1,20 @@
 <template>
   <div id="with-user-form">
-    <div class="field">
-      <label class="label">ФИО</label>
-      <div class="control">
-        <input v-model="accept.name" class="input" type="text" placeholder="ФИО принимающего сотрудника">
+    <div class="box">
+      <div class="field">
+        <div class="control">
+          <input v-model="accept.name" class="input is-small" type="text" placeholder="ФИО принимающего сотрудника">
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <label class="label">Огранизация</label>
-      <div class="control">
-        <input v-model="accept.organization" class="input" type="text" placeholder="Огранизация принимающего сотрудника">
+      <div class="field">
+        <div class="control">
+          <input v-model="accept.organization" class="input is-small" type="text" placeholder="Огранизация принимающего сотрудника">
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <label class="label">Должность</label>
-      <div class="control">
-        <input v-model="accept.position" class="input" type="text" placeholder="Должность принимающего сотрудника">
+      <div class="field">
+        <div class="control">
+          <input v-model="accept.position" class="input is-small" type="text" placeholder="Должность принимающего сотрудника">
+        </div>
       </div>
     </div>
   </div>

@@ -1,13 +1,15 @@
 <template>
   <div class="akt-type-selector">
-    <label class="radio">
-        <input v-model="aktState" type="radio" name="answer" value="with">
-        With 
-    </label>
-    <label class="radio">
-        <input v-model="aktState" type="radio" name="answer" value="without">
-        Without
-    </label>
+    <div class="box">
+      <label class="radio">
+          <input v-model="aktState" type="radio" name="answer" value="with">
+          С обязательствами
+      </label>
+      <label class="radio">
+          <input v-model="aktState" type="radio" name="answer" value="without">
+          Без обязательств
+      </label>
+    </div>
   </div>
 </template>
 
