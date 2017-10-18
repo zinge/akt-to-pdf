@@ -7,6 +7,7 @@
           <akt-type-selector/>
           <without-user-form v-if="aktState == 'without'"/>
           <with-user-form v-if="aktState == 'with'"/>
+          <items/>
         </div>
       </div>
       <div class="column"/>
@@ -18,6 +19,7 @@
 import AktTypeSelector from './components/AktTypeSelector.vue'
 import WithoutUserForm from './components/without/UserForm.vue'
 import WithUserForm from './components/with/UserForm.vue'
+import Items from './components/Items.vue'
 
 export default {
   name: 'app',
@@ -33,7 +35,7 @@ export default {
     }
   },
   components: {
-    AktTypeSelector, WithoutUserForm, WithUserForm
+    AktTypeSelector, WithoutUserForm, WithUserForm, Items
   }
 }
 </script>

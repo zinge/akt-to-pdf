@@ -17,7 +17,8 @@ export default new Vuex.Store({
       organization: '',
       address: '',
       position: ''
-    }
+    },
+    items: {}
   },
 
   mutations: {
@@ -29,6 +30,9 @@ export default new Vuex.Store({
     },
     addAcceptUser (state, payload) {
       state.acceptUser = payload
+    },
+    addItem (state, payload) {
+      state.items.push(payload)
     }
   }
 })
