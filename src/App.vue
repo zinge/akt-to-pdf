@@ -25,10 +25,10 @@ export default {
     aktState () {
       return this.$store.state.akt
     },
-    acceptUser () {
+    accept () {
       return this.$store.state.acceptUser
     },
-    transferUser () {
+    transfer () {
       return this.$store.state.transferUser
     }
   },

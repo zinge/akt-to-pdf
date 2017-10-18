@@ -6,8 +6,18 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     akt: undefined,
-    transferUser: {},
-    acceptUser: {}
+    transferUser: {
+      name: '',
+      organization: '',
+      address: '',
+      position: ''
+    },
+    acceptUser: {
+      name: '',
+      organization: '',
+      address: '',
+      position: ''
+    }
   },
 
   mutations: {
