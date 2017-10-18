@@ -8,7 +8,11 @@
           </tr>
         </thead>
         <tbody>
-
+          <tr v-for="(item, index) in items" :key="item.id">
+            <th v-for="(val,key) in item[index]" :key="val.id">
+              {{ val }}
+            </th>
+          </tr>
         </tbody>
       </table>
 
@@ -77,7 +81,7 @@ export default {
 
   methods: {
     addItem () {
-      // this.$store.commit('addItem', this.item)
+      this.$store.commit('addItem', this.item)
       this.isActive = false
     }
   }
