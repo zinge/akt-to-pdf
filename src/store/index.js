@@ -33,6 +33,9 @@ export default new Vuex.Store({
     },
     addItem (state, payload) {
       state.items.push(payload)
+    },
+    dropItem (state, payload) {
+      state.items.splice(payload, 1)
     }
   }
 })

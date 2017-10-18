@@ -1,27 +1,27 @@
 <template>
   <div id="items">
     <div class="box">
-      <table class="table is-bordered">
-        <thead>
-          <tr>
-            <th v-for="(item, index) in itemHead" :key="item.id">{{ item }}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(item, index) in items" :key="item.id">
-            <th v-for="(val,key) in item[index]" :key="val.id">
-              {{ val }}
-            </th>
-          </tr>
-        </tbody>
-      </table>
 
-      <a class="button" @click="isActive = true">Button</a>
+      <article class="message is-info" v-for="(item, index) in items" :key="item.id">
+        <div class="message-header">
+          Элемент {{index}}
+          <button class="delete" @click="dropItem(index)"></button>
+        </div>
+        <div class="message-body">
+          <p>
+            <strong>{{item.name}}</strong><br>
+            <small>SAP: {{item.sap}}, Инв. №: {{item.vendorSerial}} </small>
+          </p>
+        </div>
+      </article>
+
+      <a class="button is-small" @click="isActive = true">добавить оборудование</a>
+
       <div class="modal" :class="{'is-active': isActive}">
         <div class="modal-background"></div>
         <div class="modal-content">
           <div class="box">
-            <strong>Парметры нового элемента</strong>
+            <strong>Параметры добавляемого элемента</strong>
             <div class="field">
               <div class="control">
                 <input v-model="item.name" class="input is-small" type="text" placeholder="наименование оборудования">
@@ -42,7 +42,7 @@
                 <input v-model="item.count" class="input is-small" type="text" placeholder="количество">
               </div>
             </div>
-            <div class="field">
+            <div class="field has-addons has-addons-centered">
               <div class="control">
                 <button class="is-small" @click="addItem">добавить</button>
               </div>
@@ -83,6 +83,10 @@ export default {
     addItem () {
       this.$store.commit('addItem', this.item)
       this.isActive = false
+      this.item = {}
+    },
+    dropItem (index) {
+      this.$store.commit('dropItem', index)
     }
   }
 }
