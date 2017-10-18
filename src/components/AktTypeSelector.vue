@@ -9,6 +9,10 @@
           <input v-model="aktState" type="radio" name="answer" value="without">
           Без обязательств
       </label>
+      <label class="radio">
+          <input v-model="aktState" type="radio" name="answer" value="undefined">
+          Скрыть меню с ФИО
+      </label>
     </div>
   </div>
 </template>

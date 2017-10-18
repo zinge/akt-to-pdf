@@ -4,10 +4,10 @@
       <div class="column"/>
       <div class="column is-three-quarters">
         <div class="box">
+          <items/>
           <akt-type-selector/>
           <without-user-form v-if="aktState == 'without'"/>
           <with-user-form v-if="aktState == 'with'"/>
-          <items/>
         </div>
       </div>
       <div class="column"/>

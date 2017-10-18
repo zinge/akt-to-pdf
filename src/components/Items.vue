@@ -1,21 +1,7 @@
 <template>
   <div id="items">
     <div class="box">
-
-      <article class="message is-info" v-for="(item, index) in items" :key="item.id">
-        <div class="message-header">
-          Элемент {{index}}
-          <button class="delete" @click="dropItem(index)"></button>
-        </div>
-        <div class="message-body">
-          <p>
-            <strong>{{item.name}}</strong><br>
-            <small>SAP: {{item.sap}}, Инв. №: {{item.vendorSerial}} </small>
-          </p>
-        </div>
-      </article>
-
-      <a class="button is-small" @click="isActive = true">добавить оборудование</a>
+      <a class="button is-small" @click="isActive = true">добавить оборудование</a><hr>
 
       <div class="modal" :class="{'is-active': isActive}">
         <div class="modal-background"></div>
@@ -51,6 +37,19 @@
         </div>
         <button class="modal-close is-large" aria-label="close" @click="isActive = false"></button>
       </div>
+
+      <article class="message is-info is-small" v-for="(item, index) in items" :key="item.id">
+        <div class="message-header">
+          Элемент: {{index}}
+          <button class="delete is-small" @click="dropItem(index)"></button>
+        </div>
+        <div class="message-body">
+          <p>
+            <strong >{{item.name}}</strong><br>
+            <small>SAP: {{item.sap}}, Инв. №: {{item.vendorSerial}}, Кол-во: {{item.count}}</small>
+          </p>
+        </div>
+      </article>
     </div>
   </div>
 </template>
@@ -60,12 +59,6 @@ export default {
   name: 'Items',
   data () {
     return {
-      itemHead: {
-        name: 'наименование',
-        sap: 'инв. SAP',
-        vendorSerial: 'инв. заводской',
-        count: 'количество'
-      },
       isActive: false,
       item: {}
     }
