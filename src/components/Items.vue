@@ -5,7 +5,7 @@
         <strong>Список оборудования</strong>
       </p>
       <p class="control">
-        <a class="button is-small" @click="isActive = true">добавить оборудование</a>
+        <a class="button is-small is-danger" @click="isActive = true">добавить оборудование</a>
       </p>
     </div>
 
@@ -50,10 +50,8 @@
         <button class="delete is-small" @click="dropItem(index)"></button>
       </div>
       <div class="message-body">
-        <p>
-          <strong >{{item.name}}</strong><br>
-          <small>SAP: {{item.sap}}, Инв. №: {{item.vendorSerial}}, Кол-во: {{item.count}}</small>
-        </p>
+        <strong>{{item.name}}</strong><br>
+        SAP: {{item.sap}}, Инв. №: {{item.vendorSerial}}, Кол-во: {{item.count}}
       </div>
     </article>
   </div>

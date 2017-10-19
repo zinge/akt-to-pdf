@@ -1,6 +1,6 @@
 <template>
   <div id="create-pdf">
-    <a class="button is-warning" @click="create">create</a>
+    <a class="button is-warning" @click="create">create pdf</a>
   </div>
 </template>
 

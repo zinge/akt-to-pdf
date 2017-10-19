@@ -2,9 +2,9 @@
   <div id="transfer-member">
     <a class="button is-danger" v-if="!created" @click="isActive = true">Добавить отдающего?!</a>
 
-    <article class="message is-success is-small" v-if="created">
+    <article class="message is-success is-small is-marginless" v-if="created">
       <div class="message-header">
-        <p>Отдаёт:</p><button class="delete is-small" @click="dropTransferMember"></button>
+        <p>Отдаёт</p><button class="delete is-small" @click="dropTransferMember"></button>
       </div>
       <div class="message-body">
         <p>

@@ -1,6 +1,6 @@
 <template>
   <div class="akt-type-selector">
-    <a class="button is-info" @click="invertAktState">{{aktDesc[aktState]}}</a>
+    <a class="button" :class="buttonType[aktState]" @click="invertAktState">{{aktDesc[aktState]}}</a>
   </div>
 </template>
 
@@ -14,6 +14,10 @@
         aktDesc: {
           true: 'Акт с обязательствами',
           false: 'Акт без обязательств'
+        },
+        buttonType: {
+          true: 'is-primary',
+          false: 'is-info'
         }
       }
     },

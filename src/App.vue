@@ -11,7 +11,14 @@
               <transfer-member/>
             </div>
             <div class="tile is-child box">
-              <akt-type-selector/><create-pdf/>
+              <div class="field is-grouped is-grouped-centered">
+                <div class="control is-expanded">
+                  <akt-type-selector/>
+                </div>
+                <div class="control is-right">
+                  <create-pdf/>
+                </div>
+              </div>
             </div>
           </div>
           <div class="tile is-parent">
@@ -43,15 +50,7 @@ export default {
 
 <style>
 #app {
-  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center;
-  color: #2c3e50;
-  margin-top: 60px; */
-}
-
-.message:not(:last-child) {
-  margin-bottom: 10px;
 }
 </style>
