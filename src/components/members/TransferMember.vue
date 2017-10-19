@@ -4,15 +4,15 @@
 
     <article class="message is-success is-small" v-if="created">
       <div class="message-header">
-        </p>
-        <div class="field has-addons has-addons-right">
-            <button class="delete is-small" @click="dropTransferMember"></button>
-        </div>
+        </p><button class="delete is-small" @click="dropTransferMember"></button>
       </div>
       <div class="message-body">
         <p>
           <strong >{{localTransferMember.name}}</strong><br>
-          <small>Организация: {{localTransferMember.organization}},<br>Адрес: {{localTransferMember.address}},<br>Должность: {{localTransferMember.position}}</small>
+          <small>Организация: {{localTransferMember.organization}},
+            <br>Адрес: {{localTransferMember.address}},
+            <br>Должность: {{localTransferMember.position}}
+          </small>
         </p>
       </div>
     </article>

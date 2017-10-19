@@ -4,15 +4,15 @@
 
     <article class="message is-success is-small" v-if="created">
       <div class="message-header">
-        </p>
-        <div class="field has-addons has-addons-right">
-            <button class="delete is-small" @click="dropAcceptMember"></button>
-        </div>
+        </p><button class="delete is-small" @click="dropAcceptMember"></button>
       </div>
       <div class="message-body">
         <p>
           <strong >{{localAcceptMember.name}}</strong><br>
-          <small>Организация: {{localAcceptMember.organization}},<br>Адрес: {{localAcceptMember.address}},<br>Должность: {{localAcceptMember.position}}</small>
+          <small>Организация: {{localAcceptMember.organization}},
+            <br>Адрес: {{localAcceptMember.address}},
+            <br>Должность: {{localAcceptMember.position}}
+          </small>
         </p>
       </div>
     </article>
