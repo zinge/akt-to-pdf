@@ -11,7 +11,7 @@
               <transfer-member/>
             </div>
             <div class="tile is-child box">
-              <akt-type-selector/>
+              <akt-type-selector/><create-pdf/>
             </div>
           </div>
           <div class="tile is-parent">
@@ -30,12 +30,13 @@ import AktTypeSelector from './components/AktTypeSelector.vue'
 import Items from './components/Items.vue'
 import AcceptMember from './components/members/AcceptMember.vue'
 import TransferMember from './components/members/TransferMember.vue'
+import CreatePdf from './components/CreatePdf.vue'
 
 export default {
   name: 'app',
 
   components: {
-    AktTypeSelector, Items, AcceptMember, TransferMember
+    AktTypeSelector, Items, AcceptMember, TransferMember, CreatePdf
   }
 }
 </script>
@@ -51,6 +52,6 @@ export default {
 }
 
 .message:not(:last-child) {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 </style>

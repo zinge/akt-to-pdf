@@ -4,7 +4,7 @@
 
     <article class="message is-success is-small" v-if="created">
       <div class="message-header">
-        <p>Ппринимает:</p><button class="delete is-small" @click="dropAcceptMember"></button>
+        <p>Принимает:</p><button class="delete is-small" @click="dropAcceptMember"></button>
       </div>
       <div class="message-body">
         <p>
