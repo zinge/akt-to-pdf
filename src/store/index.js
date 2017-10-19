@@ -6,18 +6,6 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     akt: undefined,
-    transferUser: {
-      name: '',
-      organization: '',
-      address: '',
-      position: ''
-    },
-    acceptUser: {
-      name: '',
-      organization: '',
-      address: '',
-      position: ''
-    },
     acceptMember: {},
     transferMember: {},
     items: []
@@ -26,12 +14,6 @@ export default new Vuex.Store({
   mutations: {
     changeAkt (state, payload) {
       state.akt = payload
-    },
-    addTransferUser (state, payload) {
-      state.transferUser = payload
-    },
-    addAcceptUser (state, payload) {
-      state.acceptUser = payload
     },
     addItem (state, payload) {
       state.items.push(payload)

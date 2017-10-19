@@ -46,8 +46,6 @@
 
 <script>
 import AktTypeSelector from './components/AktTypeSelector.vue'
-import WithoutUserForm from './components/without/UserForm.vue'
-import WithUserForm from './components/with/UserForm.vue'
 import Items from './components/Items.vue'
 import AcceptMember from './components/members/AcceptMember.vue'
 import TransferMember from './components/members/TransferMember.vue'
@@ -57,16 +55,10 @@ export default {
   computed: {
     aktState () {
       return this.$store.state.akt
-    },
-    accept () {
-      return this.$store.state.acceptUser
-    },
-    transfer () {
-      return this.$store.state.transferUser
     }
   },
   components: {
-    AktTypeSelector, WithoutUserForm, WithUserForm, Items, AcceptMember, TransferMember
+    AktTypeSelector, Items, AcceptMember, TransferMember
   }
 }
 </script>
