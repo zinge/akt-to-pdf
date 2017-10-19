@@ -5,37 +5,27 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    akt: undefined,
-    transferUser: {
-      name: '',
-      organization: '',
-      address: '',
-      position: ''
-    },
-    acceptUser: {
-      name: '',
-      organization: '',
-      address: '',
-      position: ''
-    },
+    aktWithAgreement: undefined,
+    acceptMember: {},
+    transferMember: {},
     items: []
   },
 
   mutations: {
     changeAkt (state, payload) {
-      state.akt = payload
-    },
-    addTransferUser (state, payload) {
-      state.transferUser = payload
-    },
-    addAcceptUser (state, payload) {
-      state.acceptUser = payload
+      state.aktWithAgreement = payload
     },
     addItem (state, payload) {
       state.items.push(payload)
     },
     dropItem (state, payload) {
       state.items.splice(payload, 1)
+    },
+    createAcceptMember (state, payload) {
+      state.acceptMember = payload
+    },
+    createTransferMember (state, payload) {
+      state.transferMember = payload
     }
   }
 })
