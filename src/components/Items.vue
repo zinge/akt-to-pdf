@@ -1,7 +1,15 @@
 <template>
   <div id="items">
     <div class="box">
-      <a class="button is-small" @click="isActive = true">добавить оборудование</a><hr>
+
+      <div class="field is-grouped">
+        <p class="control is-expanded">
+          <strong>Список оборудования</strong>
+        </p>
+        <p class="control">
+          <a class="button is-small" @click="isActive = true">добавить оборудование</a>
+        </p>
+      </div>
 
       <div class="modal" :class="{'is-active': isActive}">
         <div class="modal-background"></div>
@@ -40,7 +48,7 @@
 
       <article class="message is-info is-small" v-for="(item, index) in items" :key="item.id">
         <div class="message-header">
-          Элемент: {{index}}
+          {{index}} элемент
           <button class="delete is-small" @click="dropItem(index)"></button>
         </div>
         <div class="message-body">

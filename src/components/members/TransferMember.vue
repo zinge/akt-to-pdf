@@ -1,10 +1,10 @@
 <template>
   <div id="transfer-member">
-    <a class="button is-danger" v-if="!created" @click="isActive = true">Добавить ?!</a>
+    <a class="button is-danger" v-if="!created" @click="isActive = true">Добавить отдающего?!</a>
 
     <article class="message is-success is-small" v-if="created">
       <div class="message-header">
-        </p><button class="delete is-small" @click="dropTransferMember"></button>
+        <p>Отдаёт:</p><button class="delete is-small" @click="dropTransferMember"></button>
       </div>
       <div class="message-body">
         <p>
@@ -21,25 +21,25 @@
       <div class="modal-background"></div>
         <div class="modal-content">
           <div class="box">
-            <strong>Кто принимает:</strong>
+            <strong>Кто отдаёт:</strong>
             <div class="field">
               <div class="control">
-                <input v-model="localTransferMember.name" class="input is-small" type="text" placeholder="ФИО сотрудника, принимающей стороны">
+                <input v-model="localTransferMember.name" class="input is-small" type="text" placeholder="ФИО сотрудника, отдающей стороны">
               </div>
             </div>
             <div class="field">
               <div class="control">
-                <input v-model="localTransferMember.organization" class="input is-small" type="text" placeholder="Огранизация сотрудника, принимающей стороны">
+                <input v-model="localTransferMember.organization" class="input is-small" type="text" placeholder="Огранизация сотрудника, отдающей стороны">
               </div>
             </div>
             <div class="field">
               <div class="control">
-                <input v-model="localTransferMember.address" class="input is-small" type="text" placeholder="Адрес принимающего стороны">
+                <input v-model="localTransferMember.address" class="input is-small" type="text" placeholder="Адрес отдающей стороны">
               </div>
             </div>
             <div class="field">
               <div class="control">
-                <input v-model="localTransferMember.position" class="input is-small" type="text" placeholder="Должность принимающего стороны">
+                <input v-model="localTransferMember.position" class="input is-small" type="text" placeholder="Должность отдающей стороны">
               </div>
             </div>
             <div class="field has-addons has-addons-centered">

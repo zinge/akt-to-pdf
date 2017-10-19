@@ -5,21 +5,18 @@
         <div class="tile is-ancestor">
           <div class="tile is-4 is-vertical is-parent">
             <div class="tile is-child box">
-              <p class="title">Принимает:</p>
               <accept-member/>
             </div>
             <div class="tile is-child box">
-              <p class="title">Передает:</p>
               <transfer-member/>
             </div>
             <div class="tile is-child box">
-              <p class="title">Тип акта:</p>
+              <strong>Тип акта:</strong>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
             </div>
           </div>
           <div class="tile is-parent">
             <div class="tile is-child box">
-              <p class="title">Список оборудования</p>
               <items/>
             </div>
           </div>

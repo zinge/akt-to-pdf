@@ -1,10 +1,10 @@
 <template>
   <div id="accept-member">
-    <a class="button is-danger" v-if="!created" @click="isActive = true">Добавить ?!</a>
+    <a class="button is-danger" v-if="!created" @click="isActive = true">Добавить принимающего?!</a>
 
     <article class="message is-success is-small" v-if="created">
       <div class="message-header">
-        </p><button class="delete is-small" @click="dropAcceptMember"></button>
+        <p>Ппринимает:</p><button class="delete is-small" @click="dropAcceptMember"></button>
       </div>
       <div class="message-body">
         <p>
