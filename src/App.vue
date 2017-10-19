@@ -20,7 +20,7 @@
         <div class="tile is-4 is-vertical is-parent">
           <div class="tile is-child box">
             <p class="title">Принимает:</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+            <accept-member/>
           </div>
           <div class="tile is-child box">
             <p class="title">Передает:</p>
@@ -49,6 +49,7 @@ import AktTypeSelector from './components/AktTypeSelector.vue'
 import WithoutUserForm from './components/without/UserForm.vue'
 import WithUserForm from './components/with/UserForm.vue'
 import Items from './components/Items.vue'
+import AcceptMember from './components/members/AcceptMember.vue'
 
 export default {
   name: 'app',
@@ -64,7 +65,7 @@ export default {
     }
   },
   components: {
-    AktTypeSelector, WithoutUserForm, WithUserForm, Items
+    AktTypeSelector, WithoutUserForm, WithUserForm, Items, AcceptMember
   }
 }
 </script>

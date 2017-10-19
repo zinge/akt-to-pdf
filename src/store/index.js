@@ -18,20 +18,8 @@ export default new Vuex.Store({
       address: '',
       position: ''
     },
-    acceptMember: {
-      created: false,
-      name: '',
-      organization: '',
-      address: '',
-      position: ''
-    },
-    transferMember: {
-      created: false,
-      name: '',
-      organization: '',
-      address: '',
-      position: ''
-    },
+    acceptMember: {},
+    transferMember: {},
     items: []
   },
 
