@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    akt: undefined,
+    aktWithAgreement: undefined,
     acceptMember: {},
     transferMember: {},
     items: []
@@ -13,7 +13,7 @@ export default new Vuex.Store({
 
   mutations: {
     changeAkt (state, payload) {
-      state.akt = payload
+      state.aktWithAgreement = payload
     },
     addItem (state, payload) {
       state.items.push(payload)

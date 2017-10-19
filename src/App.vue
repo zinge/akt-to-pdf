@@ -11,8 +11,7 @@
               <transfer-member/>
             </div>
             <div class="tile is-child box">
-              <strong>Тип акта:</strong>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+              <akt-type-selector/>
             </div>
           </div>
           <div class="tile is-parent">
@@ -34,11 +33,7 @@ import TransferMember from './components/members/TransferMember.vue'
 
 export default {
   name: 'app',
-  computed: {
-    aktState () {
-      return this.$store.state.akt
-    }
-  },
+
   components: {
     AktTypeSelector, Items, AcceptMember, TransferMember
   }
@@ -53,5 +48,9 @@ export default {
   /* text-align: center;
   color: #2c3e50;
   margin-top: 60px; */
+}
+
+.message:not(:last-child) {
+  margin-bottom: 0;
 }
 </style>

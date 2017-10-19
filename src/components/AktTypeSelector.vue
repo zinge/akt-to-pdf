@@ -1,34 +1,34 @@
 <template>
   <div class="akt-type-selector">
-    <div class="box">
-      <label class="radio">
-          <input v-model="aktState" type="radio" name="answer" value="with">
-          С обязательствами
-      </label>
-      <label class="radio">
-          <input v-model="aktState" type="radio" name="answer" value="without">
-          Без обязательств
-      </label>
-    </div>
+    <a class="button is-info" @click="invertAktState">{{aktDesc[aktState]}}</a>
   </div>
 </template>
 
 <script>
   export default {
     name: 'AktTypeSelector',
-    computed: {
-      aktState: {
-        get () {
-          return this.$store.state.akt
-        },
-        set (value) {
-          this.$store.commit('changeAkt', value)
+
+    data () {
+      return {
+        aktState: false,
+        aktDesc: {
+          true: 'Акт с обязательствами',
+          false: 'Акт без обязательств'
         }
+      }
+    },
+
+    methods: {
+      invertAktState () {
+        this.aktState = !this.aktState
+        this.$store.commit('changeAkt', this.aktState)
+      }
+    },
+
+    computed: {
+      saveAktState () {
+        this.$store.commit('changeAkt', this.aktState)
       }
     }
   }
 </script>
-
-<style>
-
-</style>
