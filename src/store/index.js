@@ -18,6 +18,20 @@ export default new Vuex.Store({
       address: '',
       position: ''
     },
+    acceptMember: {
+      created: false,
+      name: '',
+      organization: '',
+      address: '',
+      position: ''
+    },
+    transferMember: {
+      created: false,
+      name: '',
+      organization: '',
+      address: '',
+      position: ''
+    },
     items: []
   },
 
@@ -36,6 +50,12 @@ export default new Vuex.Store({
     },
     dropItem (state, payload) {
       state.items.splice(payload, 1)
+    },
+    createAcceptMember (state, payload) {
+      state.acceptMember = payload
+    },
+    createTransferMember (state, payload) {
+      state.transferMember = payload
     }
   }
 })

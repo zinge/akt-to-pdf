@@ -1,17 +1,46 @@
 <template>
   <div id="app">
-    <div class="columns">
+    <!-- <div class="columns">
       <div class="column"/>
       <div class="column is-three-quarters">
         <div class="box">
-          <items/>
+
           <akt-type-selector/>
           <without-user-form v-if="aktState == 'without'"/>
           <with-user-form v-if="aktState == 'with'"/>
         </div>
       </div>
       <div class="column"/>
+    </div> -->
+
+
+  <div class="section">
+    <div class="container">
+      <div class="tile is-ancestor">
+        <div class="tile is-4 is-vertical is-parent">
+          <div class="tile is-child box">
+            <p class="title">Принимает:</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+          </div>
+          <div class="tile is-child box">
+            <p class="title">Передает:</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+          </div>
+          <div class="tile is-child box">
+            <p class="title">Тип акта:</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+          </div>
+        </div>
+        <div class="tile is-parent">
+          <div class="tile is-child box">
+            <p class="title">Список оборудования</p>
+            <items/>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
   </div>
 </template>
 
@@ -42,11 +71,11 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 60px; */
 }
 </style>
