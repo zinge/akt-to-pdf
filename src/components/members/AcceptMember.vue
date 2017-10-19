@@ -2,7 +2,7 @@
   <div id="accept-member">
     <a class="button is-danger" v-if="!created" @click="isActive = true">Добавить ?!</a>
 
-    <article class="message is-info is-small" v-if="created">
+    <article class="message is-success is-small" v-if="created">
       <div class="message-header">
         </p>
         <div class="field has-addons has-addons-right">

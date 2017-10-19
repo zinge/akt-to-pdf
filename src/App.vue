@@ -24,7 +24,7 @@
           </div>
           <div class="tile is-child box">
             <p class="title">Передает:</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+            <transfer-member/>
           </div>
           <div class="tile is-child box">
             <p class="title">Тип акта:</p>
@@ -50,6 +50,7 @@ import WithoutUserForm from './components/without/UserForm.vue'
 import WithUserForm from './components/with/UserForm.vue'
 import Items from './components/Items.vue'
 import AcceptMember from './components/members/AcceptMember.vue'
+import TransferMember from './components/members/TransferMember.vue'
 
 export default {
   name: 'app',
@@ -65,7 +66,7 @@ export default {
     }
   },
   components: {
-    AktTypeSelector, WithoutUserForm, WithUserForm, Items, AcceptMember
+    AktTypeSelector, WithoutUserForm, WithUserForm, Items, AcceptMember, TransferMember
   }
 }
 </script>
