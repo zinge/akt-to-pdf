@@ -5,28 +5,26 @@
 </template>
 
 <script>
-import JSPDF from 'jspdf'
+import pdfMake from 'pdfmake/build/pdfmake.min.js'
+import pdfFonts from 'pdfmake/build/vfs_fonts.js'
 
 export default {
   name: 'CreatePdf',
 
   data () {
     return {
-      doc: {}
+      pdfMake,
+      pdfFonts,
+      docDefinition: {
+        content: 'This is an sample PDF printed with pdfMake, тест'
+      }
     }
   },
 
   methods: {
     create () {
-      this.doc = new JSPDF({
-        orientation: 'p',
-        unit: 'mm',
-        format: 'A4',
-        compressPdf: 0
-      })
-      console.log(this.doc.getFontList())
-      // this.doc.text('Hello world', 10, 10)
-      // this.doc.save('a4.pdf')
+      this.pdfMake.vfs = this.pdfFonts.pdfMake.vfs
+      this.pdfMake.createPdf(this.docDefinition).download('optionalName.pdf')
     }
   }
 }
