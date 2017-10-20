@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import store from './store'
-import pdf from './pdf'
 
 import 'bulma/css/bulma.css'
 
@@ -14,7 +13,6 @@ Vue.config.devtools = true
 new Vue({
   el: '#app',
   store,
-  pdf,
   template: '<App/>',
   components: { App }
 })

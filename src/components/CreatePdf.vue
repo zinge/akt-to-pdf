@@ -5,22 +5,28 @@
 </template>
 
 <script>
-// import jsPdf from 'jspdf'
+import JSPDF from 'jspdf'
 
 export default {
   name: 'CreatePdf',
 
+  data () {
+    return {
+      doc: {}
+    }
+  },
+
   methods: {
     create () {
-      console.log('push create')
-      // pdfmake.createPdf(docDefinition).download('optionalName.pdf')
-      // this.doc = new jsPdf({
-      //   text: 'Hello world'
-      // })
-      // doc.save('a4.pdf')
-      this.$pdf.mymethod()
-      // this.$pdf.text('Hello world', 1, 1)
-      // this.$pdf.save('a4.pdf')
+      this.doc = new JSPDF({
+        orientation: 'p',
+        unit: 'mm',
+        format: 'A4',
+        compressPdf: 0
+      })
+      console.log(this.doc.getFontList())
+      // this.doc.text('Hello world', 10, 10)
+      // this.doc.save('a4.pdf')
     }
   }
 }
