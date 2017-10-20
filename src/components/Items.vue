@@ -44,7 +44,7 @@
       <button class="modal-close is-large" aria-label="close" @click="isActive = false"></button>
     </div>
 
-    <article class="message is-info is-small" v-for="(item, index) in items" :key="item.id">
+    <article class="message is-small" v-for="(item, index) in items" :key="item.id">
       <div class="message-header">
         {{index}} элемент
         <button class="delete is-small" @click="dropItem(index)"></button>
