@@ -15,9 +15,6 @@ export default {
     return {
       pdfMake,
       pdfFonts,
-      docDefinition: {
-        content: 'This is an sample PDF printed with pdfMake, тест'
-      },
       docWithAgreement: {
         content: [
           // 0
