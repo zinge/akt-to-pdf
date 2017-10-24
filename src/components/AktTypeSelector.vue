@@ -27,12 +27,6 @@
         this.aktState = !this.aktState
         this.$store.commit('changeAkt', this.aktState)
       }
-    },
-
-    computed: {
-      saveAktState () {
-        this.$store.commit('changeAkt', this.aktState)
-      }
     }
   }
 </script>

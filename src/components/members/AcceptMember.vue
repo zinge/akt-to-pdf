@@ -1,6 +1,6 @@
 <template>
   <div id="accept-member">
-    <a class="button is-danger" v-if="!created" @click="isActive = true">Добавить принимающего?!</a>
+    <a class="button is-danger" v-if="!created" @click="showModal = true">Добавить принимающего?!</a>
 
     <article class="message is-success is-small is-marginless" v-if="created">
       <div class="message-header">
@@ -17,7 +17,7 @@
       </div>
     </article>
 
-    <div class="modal" :class="{'is-active': isActive}">
+    <div class="modal" :class="{'is-active': showModal}">
       <div class="modal-background"></div>
         <div class="modal-content">
           <div class="box">
@@ -49,7 +49,7 @@
             </div>
           </div>
         </div>
-      <button class="modal-close is-large" aria-label="close" @click="isActive = false"></button>
+      <button class="modal-close is-large" aria-label="close" @click="showModal = false"></button>
     </div>
   </div>
 </template>
@@ -60,7 +60,7 @@ export default {
   data () {
     return {
       created: false,
-      isActive: false,
+      showModal: false,
       localAcceptMember: {
         name: '',
         organization: '',
@@ -78,12 +78,17 @@ export default {
       this.$store.commit('createAcceptMember', this.localAcceptMember)
       this.localAcceptMember = this.$store.state.acceptMember
       this.created = true
-      this.isActive = false
+      this.showModal = false
+      this.changeBlockState()
     },
     dropAcceptMember () {
       this.$store.commit('createAcceptMember', {})
       this.localAcceptMember = {}
       this.created = false
+      this.changeBlockState()
+    },
+    changeBlockState () {
+      this.$store.commit('changeBlock', {accept: this.created})
     }
   }
 }

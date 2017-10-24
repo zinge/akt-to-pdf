@@ -5,9 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    aktWithAgreement: undefined,
+    aktWithAgreement: false,
     acceptMember: {},
     transferMember: {},
+    blocks: [
+      {name: 'accept', changed: false},
+      {name: 'transfer', changed: false},
+      {name: 'items', changed: false}
+    ],
     items: []
   },
 
@@ -26,6 +31,14 @@ export default new Vuex.Store({
     },
     createTransferMember (state, payload) {
       state.transferMember = payload
+    },
+    changeBlock (state, payload) {
+      let keyName = Object.getOwnPropertyNames(payload)
+      state.blocks.forEach(function (element) {
+        if (element.name === keyName[0]) {
+          element.changed = payload[keyName]
+        }
+      }, this)
     }
   }
 })

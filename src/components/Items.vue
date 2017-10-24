@@ -2,7 +2,7 @@
   <div id="items">
     <div class="field is-grouped">
       <p class="control is-expanded">
-        <strong>Список оборудования</strong>
+        <strong>Список оборудования, {{items.length}}</strong>
       </p>
       <p class="control">
         <a class="button is-small is-danger" @click="isActive = true">добавить оборудование</a>
@@ -80,9 +80,18 @@ export default {
       this.$store.commit('addItem', this.item)
       this.isActive = false
       this.item = {}
+      this.changeBlockState()
     },
     dropItem (index) {
       this.$store.commit('dropItem', index)
+      this.changeBlockState()
+    },
+    changeBlockState () {
+      if (!this.items.length) {
+        this.$store.commit('changeBlock', {items: false})
+      } else {
+        this.$store.commit('changeBlock', {items: true})
+      }
     }
   }
 }

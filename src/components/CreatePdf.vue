@@ -1,6 +1,6 @@
 <template>
   <div id="create-pdf">
-    <a class="button is-warning" @click="create">create pdf</a>
+    <a class="button is-warning" :disabled="changedBlocksCount < 3" @click="create">create pdf</a>
   </div>
 </template>
 
@@ -20,30 +20,24 @@ export default {
       },
       docWithAgreement: {
         content: [
+          // 0
           {
             text: 'АКТ',
             style: 'header'
           },
+          // 1
           {
             text: 'приема - передачи имущества\n\n',
             style: 'smallheader'
           },
-          {
-            text: 'от 13.09.2017 г\n\n',
-            alignment: 'right',
-            decoration: 'underline'
-          },
+          // 2 row2__toDate
+          // 3
           {
             text: 'Стороны составили настоящий АКТ о том, что:'
           },
-          {
-            text: 'Передает: Lead Engineer Nunc Mauris LLP Elmo Franklin\n\n',
-            decoration: 'underline'
-          },
-          {
-            text: 'Принимает: Lead Engineer Nunc Mauris LLP Elmo Franklin\n\n',
-            decoration: 'underline'
-          },
+          // 4 row4__transferEmployee
+          // 5 row5_acceptEmployee
+          // 6
           {
             text: [
               'во временное пользование в количестве ',
@@ -51,15 +45,18 @@ export default {
               ' единиц(ы) следующее имущество'
             ]
           },
+          // 7
           {
             text: 'iPad Air2 32GB(MNVR2RU/A)+Чехол',
             decoration: 'underline'
           },
+          // 8
           {
             text: 'Принимающая сторона обязуется:\n\n',
             fontSize: 14,
             bold: true
           },
+          // 9
           {
             ol: [
               'использовать имущество строго по прямому назначению в целях, предусмотренных спецификацией;',
@@ -88,8 +85,38 @@ export default {
     }
   },
 
+  computed: {
+    changedBlocksCount () {
+      return this.$store.state.blocks.filter(block => block.changed).length
+    }
+  },
   methods: {
+    row2__toDate () {
+      return {
+        text: 'от ' + (new Date()).toLocaleDateString() + ' г\n\n',
+        alignment: 'right',
+        decoration: 'underline'
+      }
+    },
+    row4__transferEmployee () {
+      return {
+        text: 'Передает: ' + this.$store.state.transferMember.position + ' ' + this.$store.state.transferMember.organization + ' ' + this.$store.state.transferMember.name + '\n\n',
+        decoration: 'underline'
+      }
+    },
+    row5_acceptEmployee () {
+      return {
+        text: 'Принимает: ' + this.$store.state.acceptMember.position + ' ' + this.$store.state.acceptMember.organization + ' ' + this.$store.state.acceptMember.name + '\n\n',
+        decoration: 'underline'
+      }
+    },
+
     create () {
+      this.docWithAgreement.content.splice(2, 0, this.row2__toDate())
+      this.docWithAgreement.content.splice(4, 0, this.row4__transferEmployee())
+      this.docWithAgreement.content.splice(5, 0, this.row5_acceptEmployee())
+      // console.log(this.docWithAgreement)
+
       this.pdfMake.vfs = this.pdfFonts.pdfMake.vfs
       this.pdfMake.createPdf(this.docWithAgreement).download('optionalName.pdf')
     }
