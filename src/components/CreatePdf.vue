@@ -110,11 +110,13 @@ export default {
         let text = ''
 
         for (let i = 0; i < equipList.length; i++) {
-          if (!i) {
-            text = equipList[i].name + (equipList[i].sap !== '' ? ', SAP: ' + equipList[i].sap : '') + (equipList[i].vendorSerial !== '' ? ', ИНВ №: ' + equipList[i].vendorSerial : '')
-          } else {
-            text += (',\n\n' + equipList[i].name + (equipList[i].sap !== '' ? ', SAP: ' + equipList[i].sap : '') + (equipList[i].vendorSerial !== '' ? ', ИНВ №: ' + equipList[i].vendorSerial : ''))
+          if (i) {
+            text += ',\n\n'
           }
+          text +=
+            equipList[i].name +
+            (equipList[i].sap !== '' ? ', SAP: ' + equipList[i].sap : '') +
+            (equipList[i].vendorSerial !== '' ? ', ИНВ №: ' + equipList[i].vendorSerial : '')
         }
 
         return {
