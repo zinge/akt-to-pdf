@@ -30,7 +30,7 @@ export default {
           // 2 row2__toDate
           // 3
           {
-            text: 'Стороны составили настоящий АКТ о том, что:'
+            text: 'Стороны составили настоящий АКТ о том, что:\n\n'
           },
           // 4 row4__transferEmployee
           // 5 row5_acceptEmployee
@@ -39,14 +39,10 @@ export default {
             text: [
               'во временное пользование в количестве ',
               {text: ' 1 ', decoration: 'underline'},
-              ' единиц(ы) следующее имущество'
+              ' единиц(ы) следующее имущество\n\n'
             ]
           },
-          // 7
-          {
-            text: 'iPad Air2 32GB(MNVR2RU/A)+Чехол',
-            decoration: 'underline'
-          },
+          // 7 row7__equip
           // 8
           {
             text: 'Принимающая сторона обязуется:\n\n',
@@ -56,13 +52,13 @@ export default {
           // 9
           {
             ol: [
-              'использовать имущество строго по прямому назначению в целях, предусмотренных спецификацией;',
-              'не передавать имущество в пользование третьим лицам (независимо от степени родства);',
-              'содержать имущество в исправности, соблюдать соответствующие стандарты, технические условия, и правила технической эксплуатации согласно инструкции предприятия-изготовителя;',
-              'не производить никаких конструктивных изменений (модификаций) имущества; а также нести перед OU OJSC «Company» ответственность за сохранность и техническое состояние полученного в пользование имущества;',
-              'возмещать ущерб, причиненный по вине принимающей стороны или третьих лиц, привлеченных принимающей стороной для работы с имуществом;',
-              'принимать меры по предотвращению утраты имущества, порчи и т.п.;',
-              'при выявлении фактов утраты, порчи, хищения, повреждения имущества своевременно сообщить в OU OJSC «Company»;'
+              'использовать имущество строго по прямому назначению в целях, предусмотренных спецификацией;\n',
+              'не передавать имущество в пользование третьим лицам (независимо от степени родства);\n',
+              'содержать имущество в исправности, соблюдать соответствующие стандарты, технические условия, и правила технической эксплуатации согласно инструкции предприятия-изготовителя;\n',
+              'не производить никаких конструктивных изменений (модификаций) имущества; а также нести перед OU OJSC «Company» ответственность за сохранность и техническое состояние полученного в пользование имущества;\n',
+              'возмещать ущерб, причиненный по вине принимающей стороны или третьих лиц, привлеченных принимающей стороной для работы с имуществом;\n',
+              'принимать меры по предотвращению утраты имущества, порчи и т.п.;\n',
+              'при выявлении фактов утраты, порчи, хищения, повреждения имущества своевременно сообщить в OU OJSC «Company»;\n'
             ]
           }
         ],
@@ -101,17 +97,43 @@ export default {
         decoration: 'underline'
       }
     },
-    row5_acceptEmployee () {
+    row5__acceptEmployee () {
       return {
         text: 'Принимает: ' + this.$store.state.acceptMember.position + ' ' + this.$store.state.acceptMember.organization + ' ' + this.$store.state.acceptMember.name + '\n\n',
         decoration: 'underline'
+      }
+    },
+    row7__equip () {
+      let equipList = this.$store.state.items
+
+      if (equipList.length > 1) {
+        let text = ''
+
+        for (let i = 0; i < equipList.length; i++) {
+          if (!i) {
+            text = equipList[i].name + (equipList[i].sap !== '' ? ', SAP: ' + equipList[i].sap : '') + (equipList[i].vendorSerial !== '' ? ', ИНВ №: ' + equipList[i].vendorSerial : '')
+          } else {
+            text += (',\n\n' + equipList[i].name + (equipList[i].sap !== '' ? ', SAP: ' + equipList[i].sap : '') + (equipList[i].vendorSerial !== '' ? ', ИНВ №: ' + equipList[i].vendorSerial : ''))
+          }
+        }
+
+        return {
+          text: text + '\n\n',
+          decoration: 'underline'
+        }
+      } else {
+        return {
+          text: equipList[0].name + (equipList[0].sap !== '' ? ', SAP: ' + equipList[0].sap : '') + (equipList[0].vendorSerial !== '' ? ', ИНВ №: ' + equipList[0].vendorSerial : '') + '\n\n',
+          decoration: 'underline'
+        }
       }
     },
 
     create () {
       this.docWithAgreement.content.splice(2, 0, this.row2__toDate())
       this.docWithAgreement.content.splice(4, 0, this.row4__transferEmployee())
-      this.docWithAgreement.content.splice(5, 0, this.row5_acceptEmployee())
+      this.docWithAgreement.content.splice(5, 0, this.row5__acceptEmployee())
+      this.docWithAgreement.content.splice(7, 0, this.row7__equip())
       // console.log(this.docWithAgreement)
 
       this.pdfMake.vfs = this.pdfFonts.pdfMake.vfs
