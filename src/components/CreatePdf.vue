@@ -1,6 +1,6 @@
 <template>
   <div id="create-pdf">
-    <a class="button is-warning" :disabled="changedBlocksCount < 3" @click="create">create pdf</a>
+    <a class="button is-warning" v-show="changedBlocksCount === 3" @click="create">create pdf</a>
   </div>
 </template>
 
