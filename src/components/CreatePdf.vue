@@ -25,6 +25,12 @@ export default {
     },
     aktWithAgreement () {
       return this.$store.state.aktWithAgreement
+    },
+    employees () {
+      return Object.assign({}, {
+        accept: this.$store.state.acceptMember,
+        transfer: this.$store.state.transferMember
+      })
     }
   },
   methods: {
@@ -99,13 +105,13 @@ export default {
     },
     row4__transferEmployee () {
       return {
-        text: 'Передает: ' + this.$store.state.transferMember.position + ' ' + this.$store.state.transferMember.organization + ' ' + this.$store.state.transferMember.name + '\n\n',
+        text: 'Передает: ' + this.employees.transfer.position + ' ' + this.employees.transfer.organization + ' ' + this.employees.transfer.name + '\n\n',
         decoration: 'underline'
       }
     },
     row5__acceptEmployee () {
       return {
-        text: 'Принимает: ' + this.$store.state.acceptMember.position + ' ' + this.$store.state.acceptMember.organization + ' ' + this.$store.state.acceptMember.name + '\n\n',
+        text: 'Принимает: ' + this.employees.accept.position + ' ' + this.employees.accept.organization + ' ' + this.employees.accept.name + '\n\n',
         decoration: 'underline'
       }
     },
@@ -151,6 +157,10 @@ export default {
     },
 
     create () {
+      let fileName = (
+        new Date().toISOString().slice(0, 19).replace(/-|:/g, '').replace('T', '-')
+      ) + '_' + (this.aktWithAgreement ? 'with' : 'without') + '.pdf'
+
       if (this.aktWithAgreement) {
         this.createAktWithAgreements()
       } else {
@@ -158,7 +168,7 @@ export default {
       }
 
       this.pdfMake.vfs = this.pdfFonts.pdfMake.vfs
-      this.pdfMake.createPdf(this.doc).download('optionalName.pdf')
+      this.pdfMake.createPdf(this.doc).download(fileName)
       this.doc = {}
     }
   }
