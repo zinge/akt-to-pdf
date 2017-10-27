@@ -15,7 +15,21 @@ export default {
     return {
       pdfMake,
       pdfFonts,
-      docWithAgreement: {
+      doc: {}
+    }
+  },
+
+  computed: {
+    changedBlocksCount () {
+      return this.$store.state.blocks.filter(block => block.changed).length
+    },
+    aktWithAgreement () {
+      return this.$store.state.aktWithAgreement
+    }
+  },
+  methods: {
+    row0__docWithAgreementTemplate () {
+      return {
         content: [
           // 0
           {
@@ -75,15 +89,7 @@ export default {
           }
         }
       }
-    }
-  },
-
-  computed: {
-    changedBlocksCount () {
-      return this.$store.state.blocks.filter(block => block.changed).length
-    }
-  },
-  methods: {
+    },
     row2__toDate () {
       return {
         text: 'от ' + (new Date()).toLocaleDateString() + ' г\n\n',
@@ -125,21 +131,35 @@ export default {
         }
       } else {
         return {
-          text: equipList[0].name + (equipList[0].sap !== '' ? ', SAP: ' + equipList[0].sap : '') + (equipList[0].vendorSerial !== '' ? ', ИНВ №: ' + equipList[0].vendorSerial : '') + '\n\n',
+          text: equipList[0].name +
+                (equipList[0].sap !== '' ? ', SAP: ' + equipList[0].sap : '') +
+                (equipList[0].vendorSerial !== '' ? ', ИНВ №: ' + equipList[0].vendorSerial : '') + '\n\n',
           decoration: 'underline'
         }
       }
     },
+    createAktWithAgreements () {
+      Object.assign(this.doc, this.row0__docWithAgreementTemplate())
+      this.doc.content.splice(2, 0, this.row2__toDate())
+      this.doc.content.splice(4, 0, this.row4__transferEmployee())
+      this.doc.content.splice(5, 0, this.row5__acceptEmployee())
+      this.doc.content.splice(7, 0, this.row7__equip())
+    },
+
+    createAktWithoutAgreements () {
+      Object.assign(this.doc, {content: []})
+    },
 
     create () {
-      this.docWithAgreement.content.splice(2, 0, this.row2__toDate())
-      this.docWithAgreement.content.splice(4, 0, this.row4__transferEmployee())
-      this.docWithAgreement.content.splice(5, 0, this.row5__acceptEmployee())
-      this.docWithAgreement.content.splice(7, 0, this.row7__equip())
-      // console.log(this.docWithAgreement)
+      if (this.aktWithAgreement) {
+        this.createAktWithAgreements()
+      } else {
+        this.createAktWithoutAgreements()
+      }
 
       this.pdfMake.vfs = this.pdfFonts.pdfMake.vfs
-      this.pdfMake.createPdf(this.docWithAgreement).download('optionalName.pdf')
+      this.pdfMake.createPdf(this.doc).download('optionalName.pdf')
+      this.doc = {}
     }
   }
 }
