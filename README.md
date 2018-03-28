@@ -1,5 +1,7 @@
 # akt-to-pdf
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zinge/akt-to-pdf.svg)](https://greenkeeper.io/)
+
 > A Vue.js project
 
 ## Build Setup
