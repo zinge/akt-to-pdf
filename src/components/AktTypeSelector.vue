@@ -5,28 +5,28 @@
 </template>
 
 <script>
-  export default {
-    name: 'AktTypeSelector',
+export default {
+  name: 'AktTypeSelector',
 
-    data () {
-      return {
-        aktState: false,
-        aktDesc: {
-          true: 'Акт с обязательствами',
-          false: 'Акт без обязательств'
-        },
-        buttonType: {
-          true: 'is-primary',
-          false: 'is-info'
-        }
-      }
-    },
-
-    methods: {
-      invertAktState () {
-        this.aktState = !this.aktState
-        this.$store.commit('changeAkt', this.aktState)
+  data () {
+    return {
+      aktState: false,
+      aktDesc: {
+        true: 'Акт с обязательствами',
+        false: 'Акт без обязательств'
+      },
+      buttonType: {
+        true: 'is-primary',
+        false: 'is-info'
       }
     }
+  },
+
+  methods: {
+    invertAktState () {
+      this.aktState = !this.aktState
+      this.$store.commit('changeAkt', this.aktState)
+    }
   }
+}
 </script>
