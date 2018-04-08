@@ -72,5 +72,12 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "greenkeeper": {
+    "ignore": [
+      "webpack",
+      "webpack-dev-server",
+      "optimize-css-assets-webpack-plugin"
+    ]
+  }
 }
