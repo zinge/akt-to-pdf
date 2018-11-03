@@ -58,7 +58,7 @@ export default {
           {
             text: [
               'во временное пользование в количестве ',
-              {text: ' 1 ', decoration: 'underline'},
+              { text: ' 1 ', decoration: 'underline' },
               ' единиц(ы) следующее имущество\n\n'
             ]
           },
@@ -153,7 +153,7 @@ export default {
     },
 
     createAktWithoutAgreements () {
-      Object.assign(this.doc, {content: []})
+      Object.assign(this.doc, { content: [] })
     },
 
     create () {

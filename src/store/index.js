@@ -9,9 +9,9 @@ export default new Vuex.Store({
     acceptMember: {},
     transferMember: {},
     blocks: [
-      {name: 'accept', changed: false},
-      {name: 'transfer', changed: false},
-      {name: 'items', changed: false}
+      { name: 'accept', changed: false },
+      { name: 'transfer', changed: false },
+      { name: 'items', changed: false }
     ],
     items: []
   },

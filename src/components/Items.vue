@@ -88,9 +88,9 @@ export default {
     },
     changeBlockState () {
       if (!this.items.length) {
-        this.$store.commit('changeBlock', {items: false})
+        this.$store.commit('changeBlock', { items: false })
       } else {
-        this.$store.commit('changeBlock', {items: true})
+        this.$store.commit('changeBlock', { items: true })
       }
     }
   }
