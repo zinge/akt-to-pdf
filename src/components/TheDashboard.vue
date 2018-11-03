@@ -35,8 +35,8 @@ export default {
 
   data () {
     return {
-      sender: {title: 'Sender', name: 'sender'},
-      acceptor: {title: 'Acceptor', name: 'acceptor'}
+      sender: { title: 'Sender', name: 'sender' },
+      acceptor: { title: 'Acceptor', name: 'acceptor' }
     }
   }
 }

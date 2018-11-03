@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "bulma": "^0.7.2",
+    "bulma-switch": "^2.0.0",
     "pdfmake": "^0.1.38",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",

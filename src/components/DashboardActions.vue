@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import 'bulma-switch/dist/bulma-switch.min.css'
+import 'bulma-switch/dist/css/bulma-switch.min.css'
 
 export default {
   name: 'DashboardActions',

@@ -1,21 +1,21 @@
 import Vue from 'vue'
-import Vuex, { Store } from 'vuex'
-import {hasValues} from '@/utils'
+import Vuex from 'vuex'
+import { hasValues } from '@/utils'
 
 Vue.use(Vuex)
 
+const initStore = () => ({
+  acceptor: {},
+  sender: {},
+  items: [],
+  modalTemplate: {},
+  agreement: false,
+  showModal: false,
+  pdf: { content: [] }
+})
+
 export default new Vuex.Store({
-  state: {
-    aktWithAgreement: false,
-    acceptMember: {},
-    transferMember: {},
-    blocks: [
-      { name: 'accept', changed: false },
-      { name: 'transfer', changed: false },
-      { name: 'items', changed: false }
-    ],
-    items: []
-  },
+  state: initStore(),
 
   mutations: {
     toggleModal (state) {

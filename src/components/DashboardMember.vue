@@ -9,7 +9,7 @@
   </article>
 </template>
 <script>
-import {hasValues} from '@/utils'
+import { hasValues } from '@/utils'
 import MemberCard from './MemberCard'
 
 export default {
@@ -24,10 +24,10 @@ export default {
   data () {
     return {
       fields: [
-        {label: 'Name', name: 'name'},
-        {label: 'Organization', name: 'organization'},
-        {label: 'Address', name: 'address'},
-        {label: 'Position', name: 'position'}
+        { label: 'Name', name: 'name' },
+        { label: 'Organization', name: 'organization' },
+        { label: 'Address', name: 'address' },
+        { label: 'Position', name: 'position' }
       ]
     }
   },

@@ -18,7 +18,7 @@ import ItemCard from './ItemCard'
 export default {
   name: 'DashboardItems',
 
-  components: {ItemCard},
+  components: { ItemCard },
 
   data () {
     return {
@@ -26,10 +26,10 @@ export default {
         name: 'items',
         title: 'Item',
         fields: [
-          {label: 'Equip name', name: 'name'},
-          {label: 'SAP number', name: 'sap'},
-          {label: 'Vendor number', name: 'vendor'},
-          {label: 'Items count', name: 'count'}
+          { label: 'Equip name', name: 'name' },
+          { label: 'SAP number', name: 'sap' },
+          { label: 'Vendor number', name: 'vendor' },
+          { label: 'Items count', name: 'count' }
         ]
       }
     }
