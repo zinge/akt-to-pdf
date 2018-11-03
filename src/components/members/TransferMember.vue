@@ -88,7 +88,7 @@ export default {
       this.changeBlockState()
     },
     changeBlockState () {
-      this.$store.commit('changeBlock', {transfer: this.created})
+      this.$store.commit('changeBlock', { transfer: this.created })
     }
   }
 }
